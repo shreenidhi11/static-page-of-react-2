@@ -1,8 +1,9 @@
 import React from "react"
 
-export default function Main() {
+
+function Main(Props) {
     return (
-        <div className="bodyContent">
+        <div className={Props.dark ? "bodyContentDark": "bodyContentWhite"}>
             <h1 className="heading">Fun Facts about react</h1>
             <ul className="lists">
                 <li >Was first released in 2013</li>
@@ -14,3 +15,5 @@ export default function Main() {
         </div>
     );
 }
+
+export default Main;
