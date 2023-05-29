@@ -35,15 +35,26 @@
 // export default App
 
 
-import React from "react"
+import React, { useState } from "react"
 import Navbar from "./components/Navbar"
 import Main from "./components/Main"
+import { faArrowLeftRotate } from "@fortawesome/free-solid-svg-icons"
 
 export default function App() {
+
+    const [darkMode, setDarkMode] = useState(true)
+
+
+    function onToggle() {
+        setDarkMode(prevMode => !prevMode)
+        console.log(darkMode);
+    }
+
+
     return (
-        <div className="container">
-            <Navbar />
-            <Main />
+        <div className={ darkMode ? "container" : "containerWhite"}>
+            <Navbar dark={darkMode} onToggle={onToggle}  />
+            <Main dark={darkMode}/>
         </div>
     )
 }
